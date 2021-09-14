@@ -16,13 +16,15 @@ def main():
 			if (index+2)%23 == 0:
 				# print(index)
 				# print(data[index])
-				names = ' '.join([name_and_alias[int(item)-1] for item in eval(data[index].strip())])
+				names = ' '.join([name_and_alias[int(item)] for item in eval(data[index].strip())])
 				data[index] = data[index].strip() + ' ' + names + '\n'
 			if (index+1)%23 == 0:
 				# print(index)
 				# print(data[index])
-				name = name_and_alias[int(data[index].strip())-1]
+				name = name_and_alias[int(data[index].strip())]
 				data[index] = data[index].strip() + ' ' +  name + '\n'
+			if (index+13)%23 == 0:
+				data[index] = data[index].strip() + ' ---- center' + '\n'
 		with open(os.path.join(tmp_data_folder, data_type+'.txt'), 'w') as f:
 			f.writelines(data)
 			# for line in data:
